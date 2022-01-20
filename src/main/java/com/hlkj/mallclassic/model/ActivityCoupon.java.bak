@@ -1,0 +1,52 @@
+package com.hlkj.mallclassic.model;
+
+import javax.persistence.*;
+import java.util.Objects;
+
+/**
+ * @program: mall-classic
+ * @description:
+ * @author:
+ * @create: 2021-03-17 15:09
+ */
+@Entity
+@Table(name = "activity_coupon", schema = "hengshi-wechat", catalog = "")
+public class ActivityCoupon {
+    @Id
+    private String id;
+    private String couponId;
+    private String activityId;
+
+    @Override
+    public String toString() {
+        return "ActivityCoupon{" +
+                "id='" + id + '\'' +
+                ", couponId='" + couponId + '\'' +
+                ", activityId=" + activityId +
+                '}';
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getCouponId() {
+        return couponId;
+    }
+
+    public void setCouponId(String couponId) {
+        this.couponId = couponId;
+    }
+
+    public String getActivityId() {
+        return activityId;
+    }
+
+    public void setActivityId(String activityId) {
+        this.activityId = activityId;
+    }
+}

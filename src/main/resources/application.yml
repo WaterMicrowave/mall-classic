@@ -1,0 +1,56 @@
+server:
+  port: 7777
+
+spring:
+  thymeleaf:
+    prefix: classpath:/templates/
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/mall_wechat?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=GMT%2B8
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.jdbc.Driver
+    druid:
+      initial-size: 5
+      min-idle: 5
+      max-active: 300
+      max-wait: 1000
+      test-on-borrow: true
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show_sql: true
+#    format_sql: true
+    properties:
+      hibernate:
+        format_sql: true
+  #redis`
+  redis:
+    host: r-bp117rsvys06h681hqpd.redis.rds.aliyuncs.com
+    password: Hs-redis-01
+    database: 0 # 0号库
+    listen-pattern: __keyevent@0__:expired  #监听redis 0号库的键过期事件 参考文档：https://blog.csdn.net/OuYz12/article/details/107711002
+    port: 6379
+# jwt 配置
+jwt:
+  # 加密密钥
+  secret: lixiangping163888lixp500
+  # token有效时长
+  expire: 7200
+  # header 名称
+  header: token
+
+wx:
+  config:
+    appid: wxffe9f8ad93950a30
+    appsercret: 83985772ec3ff29038d0a0475470bd20 #app密钥
+
+    mch_id: 1534636891 #商户id
+    #oThf74k_zhLnEvQJdc0Q4P5H2cYUoThf74k_zhLnEvQJdc0Q4P5H2cYU秘钥
+    #支付api秘钥（已修改，需要重置）
+    key: Hlkj1234Hlkj1234Hlkj1234Hlkj1234
+    notifyurl: http://a31ef7db.ngrok.io/WeChatPayController/WeChatPayNotify
+    payUrl: https://api.mch.weixin.qq.com/pay/unifiedorder
+
+qfk:
+  year-codes: A,B,C,D,E,F,G,H,I,K,J,K
+  pay-limit-time: 60 #1800 #延时支付30分钟

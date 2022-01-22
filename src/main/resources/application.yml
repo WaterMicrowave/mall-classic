@@ -5,7 +5,7 @@ spring:
   thymeleaf:
     prefix: classpath:/templates/
   datasource:
-    url: jdbc:mysql://127.0.0.1:3306/mall_wechat?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=GMT%2B8
+    url: jdbc:mysql://127.0.0.1:3306/wechat_mall?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=GMT%2B8
     username: root
     password: 123456
     driver-class-name: com.mysql.jdbc.Driver
@@ -25,8 +25,8 @@ spring:
         format_sql: true
   #redis`
   redis:
-    host: r-bp117rsvys06h681hqpd.redis.rds.aliyuncs.com
-    password: Hs-redis-01
+    host: 127.0.0.1
+    password:
     database: 0 # 0号库
     listen-pattern: __keyevent@0__:expired  #监听redis 0号库的键过期事件 参考文档：https://blog.csdn.net/OuYz12/article/details/107711002
     port: 6379

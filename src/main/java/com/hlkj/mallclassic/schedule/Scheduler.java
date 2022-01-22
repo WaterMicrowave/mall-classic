@@ -26,10 +26,10 @@ public class Scheduler{
     private static final SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
 
     //每隔5秒执行一次
-    @Scheduled(fixedRate = 60000)
-    public void testTasks() {
-        System.out.println("定时任务执行时间：" + dateFormat.format(new Date()));
-    }
+//    @Scheduled(fixedRate = 60000)
+//    public void testTasks() {
+//        System.out.println("定时任务执行时间：" + dateFormat.format(new Date()));
+//    }
 
     /**
      * 凌晨更新用户"已过期"的优惠券

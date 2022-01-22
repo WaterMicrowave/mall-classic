@@ -1,7 +1,6 @@
 package com.hlkj.mallclassic.model;
 
 import javax.persistence.*;
-import java.math.BigDecimal;
 import java.sql.Timestamp;
 import java.util.Objects;
 
@@ -12,7 +11,6 @@ public class Collect {
     private String id;
     private String spuId;
     private String skuId;
-    private BigDecimal snapshotPrice;
     private String userId;
     @Column(name = "create_time", insertable = false, updatable = false)
     private Timestamp createTime;
@@ -48,16 +46,6 @@ public class Collect {
     }
 
     @Basic
-    @Column(name = "snapshot_price")
-    public BigDecimal getSnapshotPrice() {
-        return snapshotPrice;
-    }
-
-    public void setSnapshotPrice(BigDecimal snapshotPrice) {
-        this.snapshotPrice = snapshotPrice;
-    }
-
-    @Basic
     @Column(name = "user_id")
     public String getUserId() {
         return userId;
@@ -86,12 +74,11 @@ public class Collect {
                 Objects.equals(id, that.id) &&
                 Objects.equals(spuId, that.spuId) &&
                 Objects.equals(skuId, that.skuId) &&
-                Objects.equals(snapshotPrice, that.snapshotPrice) &&
                 Objects.equals(createTime, that.createTime);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, spuId, skuId, snapshotPrice, userId, createTime);
+        return Objects.hash(id, spuId, skuId, userId, createTime);
     }
 }

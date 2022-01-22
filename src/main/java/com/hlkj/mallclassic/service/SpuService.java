@@ -44,6 +44,8 @@ public class SpuService {
     private SpuImgService spuImgService;
     @Autowired
     private SpuDetailImgService spuDetailImgService;
+    @Autowired
+    private CollectService collectService;
 
     public List<Spu> getList(List<String> ids){
         return spuRepository.findAllByIdIn(ids);
@@ -60,6 +62,7 @@ public class SpuService {
         List<SpuImg> spuImgList = spuImgService.getById(id);
         List<SpuDetailImg> spuDetailImgList = spuDetailImgService.getById(id);
         List<Sku> list = skuRepository.findBySpuIdEquals(spu.getId());
+        boolean isCollected = collectService.isCollected(id);
 
         //考虑到小程序字，需转换为SkuVO
         ArrayList<SkuVO> skuVOList = new ArrayList<>();
@@ -88,6 +91,7 @@ public class SpuService {
         spuVO.setSpu_img_list(spuImgList);
         spuVO.setSpu_detail_img_list(spuDetailImgList);
         spuVO.setStock(spu.getStock());
+        spuVO.setCollected(isCollected);
         return spuVO;
     }
 

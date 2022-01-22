@@ -1,6 +1,7 @@
 package com.hlkj.mallclassic.service;
 
 import com.hlkj.mallclassic.common.UnifyResponse;
+import com.hlkj.mallclassic.core.LocalUser;
 import com.hlkj.mallclassic.exception.APIParamException;
 import com.hlkj.mallclassic.exception.NotFoundException;
 import com.hlkj.mallclassic.model.Banner;
@@ -28,6 +29,12 @@ public class CollectService {
 
     @Autowired
     private CollectRepository collectRepository;
+
+    public boolean isCollected(String spuId) {
+        String userId = LocalUser.getUser().getId();
+        Integer count = collectRepository.countBySpuIdEqualsAndUserIdEquals(spuId, userId);
+        return count>0 ? true:false;
+    }
 
     public UnifyResponse add(Collect collect){
         UnifyResponse unifyResponse = null;

@@ -50,6 +50,7 @@ public class PermissionInterceptor extends HandlerInterceptorAdapter {
         //4、读取自定义注解@ScopeLevel
         ScopeLevel scopeLevel = this.getScopeLevel(handler);
         if(null==scopeLevel){
+            this.set2ThreadLocal(claims);
             return true;
         }
         //5、比较 scope和scope level

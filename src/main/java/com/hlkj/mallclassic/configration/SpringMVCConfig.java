@@ -29,7 +29,7 @@ public class SpringMVCConfig extends WebMvcConfigurationSupport{
             .excludePathPatterns("/banner/**")//首页
             .excludePathPatterns("/category/**")
             .excludePathPatterns("/sku/**")
-            .excludePathPatterns("/spu/**")
+            .excludePathPatterns("/spu/list/page")
             .excludePathPatterns("/wechat/**")
             .excludePathPatterns("/cart/sync")
             .excludePathPatterns("/test/lxp")

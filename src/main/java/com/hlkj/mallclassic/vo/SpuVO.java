@@ -30,6 +30,7 @@ public class SpuVO {
     private String default_sku_id;
     private Integer stock;
     private byte online;
+    private Boolean isCollected;
 
     @Override
     public String toString() {
@@ -49,6 +50,7 @@ public class SpuVO {
                 ", default_sku_id='" + default_sku_id + '\'' +
                 ", stock=" + stock +
                 ", online=" + online +
+                ", isCollected=" + isCollected +
                 '}';
     }
 
@@ -170,5 +172,13 @@ public class SpuVO {
 
     public void setOnline(byte online) {
         this.online = online;
+    }
+
+    public Boolean getCollected() {
+        return isCollected;
+    }
+
+    public void setCollected(Boolean collected) {
+        isCollected = collected;
     }
 }

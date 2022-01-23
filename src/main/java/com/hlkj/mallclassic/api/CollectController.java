@@ -17,15 +17,19 @@ import org.springframework.web.bind.annotation.*;
  */
 @RestController
 @RequestMapping(value = "/collect")
-public class CollectAPI {
+public class CollectController {
 
     @Autowired
     private CollectService collectService;
 
     @PostMapping(value = "/add")
     public UnifyResponse add(@RequestBody Collect collect){
-
         return  collectService.add(collect);
+    }
+
+    @GetMapping(value = "/remove")
+    public UnifyResponse add(String spuId){
+        return  collectService.remove(spuId);
     }
 
     @RequestMapping("/list/page/{pageNum}/{pageSize}")
